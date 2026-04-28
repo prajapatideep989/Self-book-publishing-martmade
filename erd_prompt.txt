@@ -1,0 +1,60 @@
+# Prompt for ERD Generation
+
+Please generate a detailed Entity Relationship Diagram (ERD) for the "Alpha Book" marketplace database using the following table structures:
+
+## Entities and Attributes:
+
+1. **users**
+   - id (INT, Primary Key, Auto Increment)
+   - name (VARCHAR)
+   - email (VARCHAR, Unique)
+   - phone (VARCHAR)
+   - address (TEXT)
+   - password (VARCHAR)
+   - role (ENUM: 'admin', 'user')
+
+2. **books**
+   - id (INT, Primary Key, Auto Increment)
+   - user_id (INT, Foreign Key references users.id)
+   - book_name (VARCHAR)
+   - category (VARCHAR - e.g., Fiction, Education, Technology, etc.)
+   - author_name (VARCHAR)
+   - cover_image (VARCHAR/Path)
+   - image1 (VARCHAR/Path - Index Page)
+   - image2 (VARCHAR/Path - First Page)
+   - image3 (VARCHAR/Path - Description Page)
+   - description (TEXT)
+   - price (DECIMAL)
+   - quantity (INT)
+   - publish_charge (DECIMAL)
+   - admin_commission (DECIMAL)
+   - status (ENUM: 'pending', 'approved', 'rejected')
+   - created_at (TIMESTAMP)
+
+3. **orders**
+   - id (INT, Primary Key, Auto Increment)
+   - user_id (INT, Foreign Key references users.id)
+   - book_id (INT, Foreign Key references books.id)
+   - quantity (INT)
+   - total_price (DECIMAL)
+   - admin_earning (DECIMAL)
+   - publisher_earning (DECIMAL)
+   - status (ENUM: 'Pending', 'Shifting', 'Reach', 'Delivered')
+   - status_update_seen (BOOLEAN)
+   - order_date (TIMESTAMP)
+
+4. **feedback**
+   - id (INT, Primary Key, Auto Increment)
+   - name (VARCHAR)
+   - email (VARCHAR)
+   - subject (VARCHAR)
+   - message (TEXT)
+   - created_at (TIMESTAMP)
+
+## Relationships:
+
+- **users to books**: One-to-Many (One user can publish many books).
+- **users to orders**: One-to-Many (One user can place many orders).
+- **books to orders**: One-to-Many (One book can be part of many orders).
+
+Please use a tool like Mermaid.js, DBDiagram.io, or any standard ERD notation to visualize this.

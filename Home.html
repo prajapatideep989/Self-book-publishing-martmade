@@ -1,0 +1,223 @@
+
+<html>
+<head>
+    <title>Home</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <style>
+        body{
+            background: url(Back2.jpg);
+            background-size: cover;
+            background-position: center;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+        }
+        .navbar{
+            display: flex;
+            justify-content: space-between;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            background-color: #e0dede;
+            position: fixed;
+            top: 0%;
+            left: 0%;
+            width: 100%;
+        }
+        .navbar #Header{
+            font-size: 30px;
+            font-style:italic;
+            font-weight: bold;
+        }
+        .navbar #bookheader{
+            margin-left: 20px;
+        }
+        .navbar .Menu{
+            display: flex;
+            justify-content: space-between;
+            gap: 19px;
+            margin-top: 17;
+            font-weight: bold;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+        .navbar .Menu a{
+            font-size: 21px;
+            color: black;
+            text-decoration: none;
+        }
+        .navbar #logo{
+            display: flex;
+            gap: 18px;
+        }
+        .navbar #logo i{
+            font-size: 30px;
+        }
+        .navbar #logo a{
+            color: black;
+            font-size: 20px;
+        }
+        
+    
+        .intro{
+            margin-top: 13%;
+            margin-left: auto;
+            margin-right: auto;
+            max-width: 80%;           /* added */
+            font-family :'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            background-color: #a7a2a294;
+            padding: 1rem;
+            border-radius: 8px;
+        }
+        .intro h1{
+            font-size: 36px;
+        }
+        .intro #abc{
+            font-size: 20px;
+            line-height: 1.6;
+            backdrop-filter: blur(10px);
+        }
+
+        .Vision{
+            display: flex;
+            align-items: center;
+            background-color: #a7a2a294;
+            border-radius: 10px;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            height: auto;
+            margin: 7% auto 0 auto;
+            max-width: 80%;
+            height: 70%;
+            padding: 1rem;
+        }
+        .Vision img {
+            max-width: 60%;
+            height: auto;
+            border-radius: 8px;
+            margin-top: 5%;
+            margin-left: 10px;
+        }
+        .Vision p{
+            font-size: 26px;
+        }
+        .quotation{
+            text-align: center;
+            margin: 7% auto 0 auto;
+            font-size: 21px;
+            background-color: #a7a2a294;
+            padding: 1rem;
+            border-radius: 8px;
+            max-width: 80%;
+        }
+        .About_us{
+            display: flex;
+            justify-content: space-between;
+            padding: 0 15%;
+            margin-top: 7%;
+            font-size: 21px;
+            background-color:  #a7a2a294;
+            height: 40%;
+        }
+        .About_us #contact a{
+            color: black;
+            line-height: 1.8;
+        }
+        .About_us .Follow_us i{
+            font-size: 36px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div id="Header">
+            <a>Alpha</a><br>
+            <a id="bookheader">Book</a>
+        </div>
+
+        <div class="Menu">
+            <a href="Home.html">Home</a>
+            <a href="#">Books</a>
+            <a href="About_us.html">About us</a>
+            <a href="contact_us.html">Contact us</a> 
+        </div>
+
+        <div id="logo">
+            <a href="myaccount.php"><i class='bx bxs-user-circle'></i></a>
+            <a href="#"><i class='bx bxs-cart-alt'></i></a>
+            <a href="Login_Register.html">Login/Register</a><br> 
+        </div>
+    </nav>
+   
+
+    <div class="intro">
+        <h1> Welcome to Alpha Book</h1>
+        <span id="abc">A place where your stories come to life.<br>
+        Whether you're an aspiring author or a<br>
+        seasoned writer, Alpha Book gives you the<br>
+        platform to publish, share, and celebrate your<br>
+        work with the world. We believe every voice matters,<br>
+        and every book has the power to inspire.<br>
+        Start your publishing journey with us and turn your ideas into lasting impact.
+        </span>
+    </div>
+
+    <div class="Vision">
+        <div class="img">
+        <img src="login2.jpg" alt="Vision Image">
+        </div>
+
+        <div class="text">
+            <h1>Our Vision</h1>
+            <p>
+                Books are windows to knowledge and imagination.
+                They help us understand the world and ourselves bet ter.
+                Reading builds vocabulary, focus, and critical thinking.
+                Books preserve culture, wisdom, and inspire growth.
+            </p>
+        </div>
+    </div>
+
+    <div class="quotation">
+        <p>
+          "Books are not just pages with words—they are worlds waiting to be explored,<br>
+            minds ready to inspire, and stories that stay with you forever."  
+        </p>
+
+        <p>
+            "Reading sharpens the mind, calms the soul, and feeds the imagination—it’s<br>
+            one of the simplest paths to growth and peace."
+        </p>
+
+        <p>
+            Everyone has a story to tell. Share yours with the world—publish your book<br>
+            and turn your words into something unforgettable."
+        </p>
+    </div>
+
+    <div class="About_us">
+        <div id="contact">
+            <h1>Get in touch</h1>
+            <i class='bx bx-current-location'></i>
+            <a href="https://maps.app.goo.gl/sPWK6ZY3TEkC6sUH7">B/7, Adajan, Surat</a><br>
+            <i class='bx bxs-phone'></i>
+            <a href="tel:9988776655">91+ 9988776655</a><br>
+            <i class='bx bxs-envelope' ></i>
+            <a href="mailto:abc@gamil.com">abc@gmail.com</a>
+        </div>
+
+        <div class="Follow_us">
+            <h1>Follow Us</h1>
+            <p>Stay connected with us through social media.<br>
+            Follow us for updates, news, and more.</p>
+
+            <a href="#"><i class='bx bxl-facebook-square' ></i></a>
+            <a href="#"><i class='bx bxl-whatsapp-square' ></i></a>
+            <a href="#"><i class='bx bxl-instagram-alt' ></i></a>
+        </div>
+    </div>
+   
+    <script src="jquery-3.7.1.min.js"></script>
+    <script>
+        $(document).ready(function(){
+
+        });
+    </script>
+</body>
+</html>

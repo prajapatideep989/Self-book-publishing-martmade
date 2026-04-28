@@ -1,0 +1,120 @@
+# DFD Prompts for Alpha Book System
+
+This file contains prompts for generating Data Flow Diagrams (DFD) for the "Alpha Book" self-publishing platform. You can paste these prompts into AI diagram makers (like Figma's AI tools, ChatGPT, or Mermaid editors) to generate the diagrams.
+
+---
+
+## 1. DFD Level 0 (Context Diagram)
+
+### Descriptive Prompt:
+"Generate a Data Flow Diagram (DFD) Level 0 (Context Diagram) for a self-publishing website called 'Alpha Book'. 
+
+**Central Process:** Alpha Book System
+**External Entities:**
+- **Visitor:** Browses public pages, searches books, and submits feedback.
+- **User/Publisher:** Registers, logs in, uploads books (including details and images), purchases books (via shopping cart), views sales earnings, and submits book reviews.
+- **Admin:** Moderates the platform by approving or rejecting uploaded books, monitors overall orders and earnings, and views system feedback.
+
+**Data Flows:**
+- Visitor -> System: Browse Request, Search Query, Feedback Data.
+- System -> Visitor: Search Results, Feedback Confirmation.
+- User/Publisher -> System: Registration/Login Details, Book Upload Data, Purchase Request, Review Data.
+- System -> User/Publisher: Login Success, Book Status Notification, Order Confirmation, Earnings Report, OTP Emails.
+- Admin -> System: Book Approval/Rejection Status, System Monitoring Request.
+- System -> Admin: Dashboard Analytics, Management Reports, Feedback Notifications."
+
+### Mermaid Code (Alternative):
+```mermaid
+graph TD
+    V[Visitor]
+    U[User/Publisher]
+    A[Admin]
+    S((Alpha Book System))
+
+    V -- "Browse/Search, Submit Feedback" --> S
+    S -- "Search Results, Confirmations" --> V
+
+    U -- "Register/Login, Upload Books, Buy Books, Submit Reviews" --> S
+    S -- "OTP, Book Status, Orders, Earnings Report" --> U
+
+    A -- "Approve/Reject Books, Monitor Reports" --> S
+    S -- "Dashboard Data, Feedback" --> A
+```
+
+---
+
+## 2. DFD Level 1 (Process Decomposition)
+
+### Descriptive Prompt:
+"Generate a Data Flow Diagram (DFD) Level 1 for 'Alpha Book' that decomposes the system into specialized processes. Show how data moves between external entities, processes, and data stores.
+
+**Processes:**
+1. **User Registration & Login:** Handles sign-up, OTP verification, and secure login.
+2. **Book Management:** Manages book uploads, metadata storage, and Admin quality review (Approval/Rejection).
+3. **Order & Payment Processing:** Manages the shopping cart, processes Razorpay payments, and calculates earnings (90% Author / 10% Platform).
+4. **Feedback & Review Management:** Collects website feedback and book reviews.
+5. **Notification & Email Handling:** Centralizes automated communications via PHPMailer.
+
+**Data Stores:**
+- **[D1] Users:** Stores profile and auth data.
+- **[D2] Books:** Stores book details, images, and status.
+- **[D3] Orders:** Stores transaction details and earnings.
+- **[D4] Feedback:** Stores website feedback.
+- **[D5] Book Reviews:** Stores book ratings/reviews.
+
+**Key Data Flows:**
+- Users interact with Process 1 (Auth) using the Users Store.
+- Users upload books to Process 2 (Book Mgmt) which stores in Books Store; Admin reviews this data.
+- Users place orders in Process 3 (Orders), which updates Orders Store and triggers Process 5 (Notifications).
+- Visitors/Users submit data to Process 4 (Feedback/Reviews), storing it in the respective stores.
+- Process 5 sends emails to Users based on triggers from other processes."
+
+### Mermaid Code (Alternative):
+```mermaid
+graph TD
+    V[Visitor]
+    U[User/Publisher]
+    A[Admin]
+
+    subgraph Processes
+        P1((1.0 Registration & Login))
+        P2((2.0 Book Management))
+        P3((3.0 Order & Payment))
+        P4((4.0 Feedback & Reviews))
+        P5((5.0 Notifications))
+    end
+
+    subgraph Data Stores
+        D1[(Users)]
+        D2[(Books)]
+        D3[(Orders)]
+        D4[(Feedback)]
+        D5[(Reviews)]
+    end
+
+    %% Auth Flow
+    U -- "Credentials" --> P1
+    P1 <--> D1
+    P1 -- "OTP Trigger" --> P5
+
+    %% Book Flow
+    U -- "Book Details/Images" --> P2
+    P2 <--> D2
+    A -- "Approval/Rejection" --> P2
+
+    %% Order Flow
+    U -- "Purchase/Pay" --> P3
+    P3 <--> D3
+    P3 -- "Order Confirmation" --> P5
+    P3 -- "Earnings Summary" --> U
+
+    %% Feedback Flow
+    V -- "Feedback" --> P4
+    U -- "Book Reviews" --> P4
+    P4 --> D4
+    P4 --> D5
+    A -- "View Feedback" --> P4
+
+    %% Notifications
+    P5 -- "Emails (OTP, Status)" --> U
+```
